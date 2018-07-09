@@ -1,0 +1,795 @@
+
+
+
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta content="IE=edge,chrome=1" http-equiv="X-UA-Compatible">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <title>ISIC Archive API Documentation</title>
+
+    <style>
+    </style>
+    <link rel="stylesheet" media="screen" href="pub/css/screen.css">
+    <link rel="stylesheet" media="print" href="pub/css/print.css">
+    <link rel="stylesheet" media="screen" href="pub/css/darkula.css">
+    
+      <script src="source/javascripts/lib/_jquery.js"></script>
+<script src="source/javascripts/lib/_jquery.highlight.js"></script>
+<script src="source/javascripts/lib/_lunr.js"></script>
+<script src="source/javascripts/lib/_imagesloaded.min.js"></script>
+<script src="source/javascripts/lib/_energize.js"></script>
+<script src="source/javascripts/app/_lang.js"></script>
+<script src="source/javascripts/app/_search.js"></script>
+<script src="source/javascripts/app/_toc.js"></script>
+<script type="text/javascript">
+$(function() {
+  loadToc($('#toc'), '.toc-link', '.toc-list-h2, .toc-list-h3, .toc-list-h4, .toc-list-h5, .toc-list-h6', 10);
+  setupLanguages($('body').data('languages'));
+  $('.content').imagesLoaded( function() {
+    recacheHeights();
+    refreshToc();
+  });
+});
+
+window.onpopstate = function() {
+  activateLanguage(getLanguageFromQueryString());
+};
+</script>
+
+    
+    <meta name="theme-color" content="#F3F7F9" />
+
+  </head>
+
+  <body data-languages="[&quot;python&quot;,&quot;R&quot;]">
+    <a href="#" id="nav-button">
+      <span>
+        NAV
+        <img src="source/images/navbar.png" class="undefined" alt="Navigation">
+      </span>
+    </a>
+    <div class="toc-wrapper">
+      <img src="source/images/logo.png" class="logo" alt="Logo">
+      
+        <div class="lang-selector">
+          
+            
+              <a href="#" data-language-name="python">Python</a>
+            
+          
+            
+              <a href="#" data-language-name="R">R</a>
+            
+          
+        </div>
+      
+      
+        <div class="search">
+          <input type="text" class="search" id="input-search" placeholder="Search">
+        </div>
+        <ul class="search-results"></ul>
+      
+      <div id="toc" class="toc-list-h1">
+	  	<ul class="toc-list-h1">
+        
+          <li>
+            <a href="#Swagger-Petstore" class="toc-h1 toc-link" data-title="ISIC Archive API Documentation">ISIC Archive API Documentation</a>
+            
+          </li>
+        
+          <li>
+            <a href="#libraries" class="toc-h1 toc-link" data-title="Libraries">Libraries</a>
+            
+          </li>
+        
+          <li>
+            <a href="#authentication" class="toc-h1 toc-link" data-title="Authentication">Authentication</a>
+            
+          </li>
+        
+          <li>
+            <a href="#images" class="toc-h1 toc-link" data-title="Images">Images</a>
+            
+              <ul class="toc-list-h2">
+                
+                  <li>
+                    <a href="#get-list-of-images" class="toc-h2 toc-link" data-title="Get List of Images">Get List of Images</a>
+                    
+                  </li>
+                
+                  <li>
+                    <a href="#get-details-metadata-for-images" class="toc-h2 toc-link" data-title="Get Details/Metadata for Images">Get Details/Metadata for Images</a>
+                    
+                  </li>
+                
+                  <li>
+                    <a href="#download-images" class="toc-h2 toc-link" data-title="Download Images">Download Images</a>
+                    
+                  </li>
+                
+              </ul>
+            
+          </li>
+        
+          <li>
+            <a href="#studies" class="toc-h1 toc-link" data-title="Studies">Studies</a>
+            
+              <ul class="toc-list-h2">
+                
+                  <li>
+                    <a href="#get-list-of-studies" class="toc-h2 toc-link" data-title="Get List of Studies">Get List of Studies</a>
+                    
+                  </li>
+                
+                  <li>
+                    <a href="#get-details-for-study" class="toc-h2 toc-link" data-title="Get Details for Study">Get Details for Study</a>
+                    
+                  </li>
+                
+              </ul>
+            
+          </li>
+        
+          <li>
+            <a href="#superpixels" class="toc-h1 toc-link" data-title="Superpixels">Superpixels</a>
+            
+              <ul class="toc-list-h2">
+                
+                  <li>
+                    <a href="#download-superpixel-masks" class="toc-h2 toc-link" data-title="Download Superpixel Masks">Download Superpixel Masks</a>
+                    
+                  </li>
+                
+              </ul>
+            
+          </li>
+        
+          <li>
+            <a href="#segmentations" class="toc-h1 toc-link" data-title="Segmentations">Segmentations</a>
+            
+              <ul class="toc-list-h2">
+                
+                  <li>
+                    <a href="#get-list-of-image-segmentations" class="toc-h2 toc-link" data-title="Get List of Image Segmentations">Get List of Image Segmentations</a>
+                    
+                  </li>
+                
+                  <li>
+                    <a href="#get-details-for-a-segmentation" class="toc-h2 toc-link" data-title="Get Details for a Segmentation">Get Details for a Segmentation</a>
+                    
+                  </li>
+                
+                  <li>
+                    <a href="#download-segmentation-mask" class="toc-h2 toc-link" data-title="Download Segmentation Mask">Download Segmentation Mask</a>
+                    
+                  </li>
+                
+              </ul>
+            
+          </li>
+        
+          <li>
+            <a href="#annotations" class="toc-h1 toc-link" data-title="Annotations">Annotations</a>
+            
+          </li>
+        
+		</ul>
+      </div>
+      
+        <ul class="toc-footer">
+          
+            <li><a href="https://mermade.github.io/shins/asyncapi.html">See AsyncAPI example</a></li>
+          
+        </ul>
+      
+    </div>
+    <div class="page-wrapper">
+      <div class="dark-box"></div>
+      <div class="content">
+        <h1 id="Swagger-Petstore">ISIC Archive API Documentation</h1>
+<blockquote>
+<p>Scroll down for code samples, example requests and responses. Select a language for code samples from the tabs above or the mobile navigation menu.</p>
+</blockquote>
+<p>Welcome to the ISIC Archive API! You can use our API to access numerous endpoints, which will allow you to query our database to access images and associated data.</p>
+<p>We have language bindings in Python and R! You can view code examples in the dark area to the right, and you can switch the programming language of the examples with the tabs at the top.</p>
+<p><b>A full list of API endpoints can be found at: <a href="https://isic-archive.com/api/v1">https://isic-archive.com/api/v1</a></b></p>
+<h1 id="libraries">Libraries</h1>
+<p>Libraries used in the code samples can be found at the links below:</p>
+<ul>
+<li>Python: <a href="https://raw.githubusercontent.com/ImageMarkup/isic-archive/master/scripts/isic_api.py">https://raw.githubusercontent.com/ImageMarkup/isic-archive/master/scripts/isic_api.py</a></li>
+<li>R: <a href="https://raw.githubusercontent.com/ImageMarkup/isic-archive/master/scripts/isic_api.R">https://raw.githubusercontent.com/ImageMarkup/isic-archive/master/scripts/isic_api.R</a></li>
+</ul>
+<p>Notes:</p>
+<ul>
+<li>For the Python module: If using the public API without a username and password, use <b>ISICApi()</b> instead of ISICApi(username='', password='')</li>
+</ul>
+<h1 id="authentication">Authentication</h1>
+<ul>
+<li>
+<p>HTTP Basic Auth</p>
+<ul>
+<li>Authorization Endpoint: <a href="https://isic-archive.com/api/v1/user/authentication">https://isic-archive.com/api/v1/user/authentication</a></li>
+</ul>
+</li>
+</ul>
+<table>
+<thead>
+<tr>
+<th>Argument</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>username</td>
+<td>ISIC Archive Username</td>
+</tr>
+<tr>
+<td>password</td>
+<td>ISIC Archive Password</td>
+</tr>
+</tbody>
+</table>
+<blockquote>
+<p>Code Sample</p>
+</blockquote>
+<pre class="highlight tab tab-python"><code><span class="hljs-keyword">from</span> isic_api <span class="hljs-keyword">import</span> ISICApi
+
+<span class="hljs-comment">#Insert Username and Password Below</span>
+api = ISICApi(username=<span class="hljs-string">"ISIC"</span>, password=<span class="hljs-string">"ARCHIVE"</span>)
+</code></pre>
+<pre class="highlight tab tab-R"><code><span class="hljs-keyword">library</span>(httr)
+<span class="hljs-keyword">library</span>(jsonlite)
+<span class="hljs-keyword">library</span>(gtools)
+
+login_ = <span class="hljs-keyword">function</span>(username, password) {
+  isicauth = httr::GET(url=<span class="hljs-string">"https://isic-archive.com/api/v1/user/authentication"</span>, config=c(authenticate(user=username, password = password)),verbose())
+  logindata = fromJSON(rawToChar(isicauth$content))
+  <span class="hljs-keyword">return</span>(logindata)
+}
+
+get_data = <span class="hljs-keyword">function</span>(desired_endpoint_url, logindata) {
+  data = httr::GET(url=desired_endpoint_url, config=c(progress(<span class="hljs-string">"down"</span>), accept_json(), add_headers(<span class="hljs-string">"Girder-Token"</span> = logindata$authToken$token)))
+  data = fromJSON(rawToChar(data$content))
+  <span class="hljs-keyword">return</span>(data)
+}
+
+username=<span class="hljs-string">""</span> <span class="hljs-comment"># Insert ISIC Archive Username</span>
+password = .rs.askForPassword(<span class="hljs-string">"password"</span>) <span class="hljs-comment">#this funtion is specific to R-Studio. If not using R-Studio then just replace with password as string</span>
+logindata = login_(username, password)
+remove(password)
+</code></pre>
+<h1 id="images">Images</h1>
+<h2 id="get-list-of-images">Get List of Images</h2>
+<ul>
+<li>Endpoints used:
+<ul>
+<li><a href="https://isic-archive.com/api/v1/image">https://isic-archive.com/api/v1/image</a></li>
+</ul>
+</li>
+</ul>
+<table>
+<thead>
+<tr>
+<th>Argument</th>
+<th>Description</th>
+<th>Example Value</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>limit</td>
+<td>Limit on records returned</td>
+<td>50 (default:50)</td>
+</tr>
+<tr>
+<td>offset</td>
+<td>Offset for records returned (i.e. for pagination)</td>
+<td>50 (default: 0)</td>
+</tr>
+<tr>
+<td>sort</td>
+<td>Field for sorting records returned</td>
+<td>name (default: name)</td>
+</tr>
+<tr>
+<td>name</td>
+<td>Find image with specific name</td>
+<td>ISIC_0000000 (default: empty)</td>
+</tr>
+<tr>
+<td>imageIds</td>
+<td>A JSON array of up to 100 image IDs, which will be exclusively included</td>
+<td>5436e3abbae478396759f0cf (default: empty)</td>
+</tr>
+</tbody>
+</table>
+<blockquote>
+<p>Code Sample</p>
+</blockquote>
+<pre class="highlight tab tab-python"><code><span class="hljs-comment">#Insert Username and Password Below</span>
+api = ISICApi(username=<span class="hljs-string">"ISIC"</span>, password=<span class="hljs-string">"ARCHIVE"</span>)
+imageList = api.getJson(<span class="hljs-string">'image?limit=100&amp;offset=0&amp;sort=name'</span>)
+</code></pre>
+<pre class="highlight tab tab-R"><code>desired_endpoint = <span class="hljs-string">"https://isic-archive.com/api/v1/image?limit=100&amp;offset=0&amp;sort=name"</span>
+imageList = get_data(desired_endpoint, logindata)
+</code></pre>
+<h2 id="get-details-metadata-for-images">Get Details/Metadata for Images</h2>
+<ul>
+<li>Endpoints used:
+<ul>
+<li><a href="https://isic-archive.com/api/v1/image">https://isic-archive.com/api/v1/image</a></li>
+<li><a href="https://isic-archive.com/api/v1/image/%7Bimage_id%7D">https://isic-archive.com/api/v1/image/{image_id}</a></li>
+</ul>
+</li>
+</ul>
+<table>
+<thead>
+<tr>
+<th>Argument</th>
+<th>Description</th>
+<th>Example Value</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>image_id</td>
+<td>The '_id' field of records returned from the /image endpoint</td>
+<td>5436e3abbae478396759f0cf (default:empty)</td>
+</tr>
+</tbody>
+</table>
+<blockquote>
+<p>Code Sample</p>
+</blockquote>
+<pre class="highlight tab tab-python"><code><span class="hljs-comment"># Initialize the API; no login is necessary for public data</span>
+api = ISICApi(username=<span class="hljs-string">'ISIC'</span>, password=<span class="hljs-string">'ARCHIVE'</span>)
+outputFileName = <span class="hljs-string">'imagedata'</span>
+
+imageList = api.getJson(<span class="hljs-string">'image?limit=100&amp;offset=0&amp;sort=name'</span>)
+
+print(<span class="hljs-string">'Fetching metadata for %s images'</span> % len(imageList))
+imageDetails = []
+<span class="hljs-keyword">for</span> image <span class="hljs-keyword">in</span> imageList:
+    print(<span class="hljs-string">' '</span>, image[<span class="hljs-string">'name'</span>])
+    <span class="hljs-comment"># Fetch the full image details</span>
+    imageDetail = api.getJson(<span class="hljs-string">'image/%s'</span> % image[<span class="hljs-string">'_id'</span>])
+    imageDetails.append(imageDetail)
+
+<span class="hljs-comment"># Determine the union of all image metadata fields</span>
+metadataFields = set(
+    field
+    <span class="hljs-keyword">for</span> imageDetail <span class="hljs-keyword">in</span> imageDetails
+    <span class="hljs-keyword">for</span> field <span class="hljs-keyword">in</span> imageDetail[<span class="hljs-string">'meta'</span>][<span class="hljs-string">'clinical'</span>].viewkeys()
+)
+metadataFields = [<span class="hljs-string">'isic_id'</span>] + sorted(metadataFields)
+
+<span class="hljs-comment"># Write the metadata to a CSV</span>
+print(<span class="hljs-string">'Writing metadata to CSV: %s'</span> % outputFileName+<span class="hljs-string">'.csv'</span>)
+<span class="hljs-keyword">with</span> open(outputFilePath+<span class="hljs-string">'.csv'</span>, <span class="hljs-string">'wb'</span>) <span class="hljs-keyword">as</span> outputStream:
+    csvWriter = csv.DictWriter(outputStream, metadataFields)
+    csvWriter.writeheader()
+    <span class="hljs-keyword">for</span> imageDetail <span class="hljs-keyword">in</span> imageDetails:
+        rowDict = imageDetail[<span class="hljs-string">'meta'</span>][<span class="hljs-string">'clinical'</span>].copy()
+        rowDict[<span class="hljs-string">'isic_id'</span>] = imageDetail[<span class="hljs-string">'name'</span>]
+        csvWriter.writerow(rowDict)
+</code></pre>
+<pre class="highlight tab tab-R"><code>desired_endpoint = <span class="hljs-string">"https://isic-archive.com/api/v1/image?limit=100&amp;offset=0&amp;sort=name&amp;sortdir=1"</span>
+imageList = get_data(desired_endpoint, logindata)
+
+imageMetadata = data.frame()
+<span class="hljs-keyword">for</span> (i <span class="hljs-keyword">in</span> <span class="hljs-number">1</span>:length(imageList$`_id`)) {
+  desired_endpoint = paste0(<span class="hljs-string">"https://isic-archive.com/api/v1/image/"</span>, imageList$`_id`[i])
+  data = get_data(desired_endpoint, logindata)
+  imageMetadata = smartbind(imageMetadata, unlist(data))
+}
+
+write.csv(imageMetadata, <span class="hljs-string">'imageMetadata.csv'</span>, row.names=<span class="hljs-literal">FALSE</span>)
+</code></pre>
+<h2 id="download-images">Download Images</h2>
+<ul>
+<li>Endpoints used:
+<ul>
+<li><a href="https://isic-archive.com/api/v1/image">https://isic-archive.com/api/v1/image</a></li>
+<li><a href="https://isic-archive.com/api/v1/image/%7Bimage_id%7D/download">https://isic-archive.com/api/v1/image/{image_id}/download</a></li>
+</ul>
+</li>
+</ul>
+<table>
+<thead>
+<tr>
+<th>Argument</th>
+<th>Description</th>
+<th>Example Value</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>image_id</td>
+<td>The '_id' field of records returned from the /image endpoint</td>
+<td>5436e3abbae478396759f0cf (default:empty)</td>
+</tr>
+</tbody>
+</table>
+<p>Notes:</p>
+<ul>
+<li>Replace /download with /thumbnail to download thumbnails instead of full-size images</li>
+</ul>
+<blockquote>
+<p>Code Sample</p>
+</blockquote>
+<pre class="highlight tab tab-python"><code><span class="hljs-keyword">import</span> urllib
+<span class="hljs-keyword">import</span> os
+
+<span class="hljs-comment"># Initialize the API; no login is necessary for public data</span>
+api = ISICApi()
+savePath = <span class="hljs-string">'ISICArchive/'</span>
+
+<span class="hljs-keyword">if</span> <span class="hljs-keyword">not</span> os.path.exists(savePath):
+    os.makedirs(savePath)
+
+imageList = api.getJson(<span class="hljs-string">'image?limit=100&amp;offset=0&amp;sort=name'</span>)
+
+print(<span class="hljs-string">'Downloading %s images'</span> % len(imageList))
+imageDetails = []
+<span class="hljs-keyword">for</span> image <span class="hljs-keyword">in</span> imageList:
+    print(image[<span class="hljs-string">'_id'</span>])
+    imageFileResp = api.get(<span class="hljs-string">'image/%s/download'</span> % image[<span class="hljs-string">'_id'</span>])
+    imageFileResp.raise_for_status()
+    imageFileOutputPath = os.path.join(savePath, <span class="hljs-string">'%s.jpg'</span> % image[<span class="hljs-string">'name'</span>])
+    <span class="hljs-keyword">with</span> open(imageFileOutputPath, <span class="hljs-string">'wb'</span>) <span class="hljs-keyword">as</span> imageFileOutputStream:
+        <span class="hljs-keyword">for</span> chunk <span class="hljs-keyword">in</span> imageFileResp:
+            imageFileOutputStream.write(chunk)
+</code></pre>
+<pre class="highlight tab tab-R"><code>desired_endpoint = <span class="hljs-string">"https://isic-archive.com/api/v1/image?limit=100&amp;offset=0&amp;sort=name&amp;sortdir=1"</span>
+imageList = get_data(desired_endpoint, logindata)
+
+savePath = <span class="hljs-string">"ISICArchive/"</span>
+
+<span class="hljs-keyword">if</span> (!dir.exists(savePath)){
+  dir.create(savePath)
+}
+
+<span class="hljs-keyword">for</span> (i <span class="hljs-keyword">in</span> <span class="hljs-number">1</span>:length(imageList$`_id`)) {
+  getURL = paste0(<span class="hljs-string">"https://isic-archive.com/api/v1/image/"</span>, imageList$`_id`[i], <span class="hljs-string">"/download"</span>)
+  saveFile = paste0(savePath, imageList$`_id`[i], <span class="hljs-string">".jpg"</span>)
+  download.file(url=getURL, destfile = saveFile, quiet = <span class="hljs-literal">TRUE</span>, method=<span class="hljs-string">"auto"</span>, mode=<span class="hljs-string">"wb"</span>)
+}
+</code></pre>
+<h1 id="studies">Studies</h1>
+<h2 id="get-list-of-studies">Get List of Studies</h2>
+<ul>
+<li>Endpoints used:
+<ul>
+<li><a href="https://isic-archive.com/api/v1/study">https://isic-archive.com/api/v1/study</a></li>
+</ul>
+</li>
+</ul>
+<table>
+<thead>
+<tr>
+<th>Argument</th>
+<th>Description</th>
+<th>Example Value</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>limit</td>
+<td>Limit on records returned</td>
+<td>50 (default:50)</td>
+</tr>
+<tr>
+<td>offset</td>
+<td>Offset for records returned (i.e. for pagination)</td>
+<td>50 (default: 0)</td>
+</tr>
+<tr>
+<td>state</td>
+<td>Filter for study status, either 'active' or 'complete'</td>
+<td>complete (default: empty)</td>
+</tr>
+<tr>
+<td>userId</td>
+<td>Filter studies to those containing a particular user ID, or 'me'</td>
+<td>me (default: empty)</td>
+</tr>
+</tbody>
+</table>
+<blockquote>
+<p>Code Sample</p>
+</blockquote>
+<pre class="highlight tab tab-python"><code><span class="hljs-comment">#Insert Username and Password Below</span>
+api = ISICApi(username=<span class="hljs-string">"ISIC"</span>, password=<span class="hljs-string">"ARCHIVE"</span>)
+studyList = api.getJson(<span class="hljs-string">'study?limit=50&amp;state=complete'</span>)
+</code></pre>
+<pre class="highlight tab tab-R"><code>desired_endpoint = <span class="hljs-string">"https://isic-archive.com/api/v1/study?limit=10"</span>
+studyList = get_data(desired_endpoint, logindata)
+</code></pre>
+<h2 id="get-details-for-study">Get Details for Study</h2>
+<ul>
+<li>Endpoints used:
+<ul>
+<li><a href="https://isic-archive.com/api/v1/study">https://isic-archive.com/api/v1/study</a></li>
+<li><a href="https://isic-archive.com/api/v1/study/%7Bstudy_id%7D">https://isic-archive.com/api/v1/study/{study_id}</a></li>
+</ul>
+</li>
+</ul>
+<table>
+<thead>
+<tr>
+<th>Argument</th>
+<th>Description</th>
+<th>Example Value</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>study_id</td>
+<td>The '_id' field of records returned from the /study endpoint</td>
+<td>573f11119fc3c132505c0ee7 (default: empty)</td>
+</tr>
+<tr>
+<td>format</td>
+<td>Desired format for data output, can be 'json' or 'csv'</td>
+<td>json (default: json)</td>
+</tr>
+</tbody>
+</table>
+<p>Notes:</p>
+<ul>
+<li>This endpoint returns the study ID, date created, study description (if available), and list of images. The list of images included in a study is usually the data of interest from this endpoint</li>
+</ul>
+<blockquote>
+<p>Code Sample</p>
+</blockquote>
+<pre class="highlight tab tab-python"><code><span class="hljs-keyword">import</span> pandas <span class="hljs-keyword">as</span> pd
+
+<span class="hljs-comment"># Initialize the API; no login is necessary for public data</span>
+api = ISICApi(username=<span class="hljs-string">'ISIC'</span>, password=<span class="hljs-string">'ARCHIVE'</span>)
+outputFileName = <span class="hljs-string">'imagedata'</span>
+
+studyData = api.getJson(<span class="hljs-string">'study/573f11119fc3c132505c0ee7'</span>)
+studyData_images = pd.DataFrame(studyData[<span class="hljs-string">'images'</span>])
+
+studyData_images.to_csv(<span class="hljs-string">'studyDataImages.csv'</span>)
+
+</code></pre>
+<pre class="highlight tab tab-R"><code>desired_endpoint = <span class="hljs-string">"https://isic-archive.com/api/v1/study/573f11119fc3c132505c0ee7"</span>
+studyData = get_data(desired_endpoint, logindata)
+
+studyData_images = data.frame(studyData$images, stringsAsFactors=<span class="hljs-literal">FALSE</span>)
+
+write.csv(studyData_images, <span class="hljs-string">'studyDataImages.csv'</span>, row.names=<span class="hljs-literal">FALSE</span>)
+</code></pre>
+<h1 id="superpixels">Superpixels</h1>
+<h2 id="download-superpixel-masks">Download Superpixel Masks</h2>
+<ul>
+<li>Endpoints used:
+<ul>
+<li><a href="https://isic-archive.com/api/v1/image">https://isic-archive.com/api/v1/image</a></li>
+<li><a href="https://isic-archive.com/api/v1/image/%7Bimage_id%7D/superpixels">https://isic-archive.com/api/v1/image/{image_id}/superpixels</a></li>
+</ul>
+</li>
+</ul>
+<table>
+<thead>
+<tr>
+<th>Argument</th>
+<th>Description</th>
+<th>Example Value</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>image_id</td>
+<td>The '_id' field of records returned from the /image endpoint</td>
+<td>5436e3abbae478396759f0cf (default:empty)</td>
+</tr>
+</tbody>
+</table>
+<blockquote>
+<p>Code Sample</p>
+</blockquote>
+<pre class="highlight tab tab-python"><code><span class="hljs-keyword">import</span> urllib
+<span class="hljs-keyword">import</span> os
+
+<span class="hljs-comment"># Initialize the API; no login is necessary for public data</span>
+api = ISICApi()
+savePath = <span class="hljs-string">'ISICArchive/'</span>
+
+<span class="hljs-keyword">if</span> <span class="hljs-keyword">not</span> os.path.exists(savePath):
+    os.makedirs(savePath)
+
+imageList = api.getJson(<span class="hljs-string">'image?limit=100&amp;offset=0&amp;sort=name'</span>)
+
+print(<span class="hljs-string">'Downloading %s images'</span> % len(imageList))
+
+<span class="hljs-keyword">for</span> image <span class="hljs-keyword">in</span> imageList:
+    print(image[<span class="hljs-string">'_id'</span>])
+    imageFileResp = api.get(<span class="hljs-string">'image/%s/superpixels'</span> % image[<span class="hljs-string">'_id'</span>])
+    imageFileResp.raise_for_status()
+    imageFileOutputPath = os.path.join(savePath, <span class="hljs-string">'%s_superpixels.jpg'</span> % image[<span class="hljs-string">'name'</span>])
+    <span class="hljs-keyword">with</span> open(imageFileOutputPath, <span class="hljs-string">'wb'</span>) <span class="hljs-keyword">as</span> imageFileOutputStream:
+        <span class="hljs-keyword">for</span> chunk <span class="hljs-keyword">in</span> imageFileResp:
+            imageFileOutputStream.write(chunk)
+</code></pre>
+<pre class="highlight tab tab-R"><code>desired_endpoint = <span class="hljs-string">"https://isic-archive.com/api/v1/image?limit=100&amp;offset=0&amp;sort=name&amp;sortdir=1"</span>
+imageList = get_data(desired_endpoint, logindata)
+
+savePath = <span class="hljs-string">"ISICArchive/"</span>
+
+<span class="hljs-keyword">if</span> (!dir.exists(savePath)){
+  dir.create(savePath)
+}
+
+<span class="hljs-keyword">for</span> (i <span class="hljs-keyword">in</span> <span class="hljs-number">1</span>:length(imageList$`_id`)) {
+  getURL = paste0(<span class="hljs-string">"https://isic-archive.com/api/v1/image/"</span>, imageList$`_id`[i], <span class="hljs-string">"/superpixels"</span>)
+  saveFile = paste0(savePath, imageList$`_id`[i], <span class="hljs-string">"_superpixels.jpg"</span>)
+  download.file(url=getURL, destfile = saveFile, quiet = <span class="hljs-literal">TRUE</span>, method=<span class="hljs-string">"auto"</span>, mode=<span class="hljs-string">"wb"</span>)
+}
+</code></pre>
+<h1 id="segmentations">Segmentations</h1>
+<h2 id="get-list-of-image-segmentations">Get List of Image Segmentations</h2>
+<ul>
+<li>Endpoints used:
+<ul>
+<li><a href="https://isic-archive.com/api/v1/segmentation">https://isic-archive.com/api/v1/segmentation</a></li>
+</ul>
+</li>
+</ul>
+<table>
+<thead>
+<tr>
+<th>Argument</th>
+<th>Description</th>
+<th>Example Value</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>image_id</td>
+<td>The '_id' field of the image for which available segmentations are being requested</td>
+<td>5436e3abbae478396759f0cf (default:empty)</td>
+</tr>
+</tbody>
+</table>
+<blockquote>
+<p>Code Sample</p>
+</blockquote>
+<pre class="highlight tab tab-python"><code><span class="hljs-comment">#Insert Username and Password Below</span>
+api = ISICApi(username=<span class="hljs-string">"ISIC"</span>, password=<span class="hljs-string">"ARCHIVE"</span>)
+imageId = <span class="hljs-string">'5436e3abbae478396759f0cf'</span> <span class="hljs-comment">#Using image ISIC_0000000 as example</span>
+imageSegmentationData = api.getJson(<span class="hljs-string">'segmentation?imageId='</span>+imageId)
+</code></pre>
+<pre class="highlight tab tab-R"><code>imageId = <span class="hljs-string">'5436e3abbae478396759f0cf'</span> <span class="hljs-comment">#Using image ISIC_0000000 as example</span>
+desired_endpoint = paste0(<span class="hljs-string">"https://isic-archive.com/api/v1/segmentation?imageId="</span>, imageId)
+imageSegmentationData = get_data(desired_endpoint, logindata)
+</code></pre>
+<h2 id="get-details-for-a-segmentation">Get Details for a Segmentation</h2>
+<ul>
+<li>Endpoints used:
+<ul>
+<li><a href="https://isic-archive.com/api/v1/segmentation/%7Bsegmentation_id%7D">https://isic-archive.com/api/v1/segmentation/{segmentation_id}</a></li>
+</ul>
+</li>
+</ul>
+<table>
+<thead>
+<tr>
+<th>Argument</th>
+<th>Description</th>
+<th>Example Value</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>segmentation_id</td>
+<td>The '_id' field of the record from the /segmentation endpoint</td>
+<td>5463934bbae47821f88025ad (default:empty)</td>
+</tr>
+</tbody>
+</table>
+<blockquote>
+<p>Code Sample</p>
+</blockquote>
+<pre class="highlight tab tab-python"><code><span class="hljs-comment">#Insert Username and Password Below</span>
+api = ISICApi(username=<span class="hljs-string">"ISIC"</span>, password=<span class="hljs-string">"ARCHIVE"</span>)
+segmentationId = <span class="hljs-string">'5463934bbae47821f88025ad'</span> <span class="hljs-comment">#Using image ISIC_0000000 as example</span>
+segmentationData = api.getJson(<span class="hljs-string">'segmentation/'</span>+segmentationId)
+</code></pre>
+<pre class="highlight tab tab-R"><code>segmentationId = <span class="hljs-string">'5463934bbae47821f88025ad'</span> <span class="hljs-comment">#Using image ISIC_0000000 as example</span>
+desired_endpoint = paste0(<span class="hljs-string">"https://isic-archive.com/api/v1/segmentation/"</span>, segmentationId)
+segmentationData = get_data(desired_endpoint, logindata)
+</code></pre>
+<h2 id="download-segmentation-mask">Download Segmentation Mask</h2>
+<ul>
+<li>Endpoints used:
+<ul>
+<li><a href="https://isic-archive.com/api/v1/segmentation">https://isic-archive.com/api/v1/segmentation</a></li>
+<li><a href="https://isic-archive.com/api/v1/segmentation/%7Bsegmentation_id%7D/mask">https://isic-archive.com/api/v1/segmentation/{segmentation_id}/mask</a></li>
+</ul>
+</li>
+</ul>
+<table>
+<thead>
+<tr>
+<th>Argument</th>
+<th>Description</th>
+<th>Example Value</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>segmentation_id</td>
+<td>The '_id' field of the record from the /segmentation endpoint</td>
+<td>5463934bbae47821f88025ad (default:empty)</td>
+</tr>
+</tbody>
+</table>
+<blockquote>
+<p>Code Sample</p>
+</blockquote>
+<pre class="highlight tab tab-python"><code><span class="hljs-keyword">import</span> urllib
+<span class="hljs-keyword">import</span> os
+
+<span class="hljs-comment"># Initialize the API; no login is necessary for public data</span>
+api = ISICApi()
+savePath = <span class="hljs-string">'ISICArchive/'</span>
+
+<span class="hljs-keyword">if</span> <span class="hljs-keyword">not</span> os.path.exists(savePath):
+    os.makedirs(savePath)
+
+imageId = <span class="hljs-string">'5436e3abbae478396759f0cf'</span>
+segmentationList = api.getJson(<span class="hljs-string">'segmentation?imageId='</span>+imageId)
+
+print(<span class="hljs-string">'Downloading %s images'</span> % len(segmentationList))
+
+<span class="hljs-keyword">for</span> segmentation <span class="hljs-keyword">in</span> segmentationList:
+    print(segmentation[<span class="hljs-string">'_id'</span>])
+    imageFileResp = api.get(<span class="hljs-string">'segmentation/%s/mask'</span> % segmentation[<span class="hljs-string">'_id'</span>])
+    imageFileResp.raise_for_status()
+    imageFileOutputPath = os.path.join(savePath, <span class="hljs-string">'%s_segmentationMask.jpg'</span> % segmentation[<span class="hljs-string">'name'</span>])
+    <span class="hljs-keyword">with</span> open(imageFileOutputPath, <span class="hljs-string">'wb'</span>) <span class="hljs-keyword">as</span> imageFileOutputStream:
+        <span class="hljs-keyword">for</span> chunk <span class="hljs-keyword">in</span> imageFileResp:
+            imageFileOutputStream.write(chunk)
+</code></pre>
+<pre class="highlight tab tab-R"><code>imageId = <span class="hljs-string">'5436e3abbae478396759f0cf'</span>
+desired_endpoint = paste0(<span class="hljs-string">"https://isic-archive.com/api/v1/segmentation?imageId="</span>, imageId)
+segmentationList = get_data(desired_endpoint, logindata)
+
+savePath = <span class="hljs-string">"ISICArchive/"</span>
+
+<span class="hljs-keyword">if</span> (!dir.exists(savePath)){
+  dir.create(savePath)
+}
+
+<span class="hljs-keyword">for</span> (i <span class="hljs-keyword">in</span> <span class="hljs-number">1</span>:length(segmentationList$`_id`)) {
+  getURL = paste0(<span class="hljs-string">"https://isic-archive.com/api/v1/segmentation/"</span>, segmentationList$`_id`[i], <span class="hljs-string">"/mask"</span>)
+  saveFile = paste0(savePath, segmentationList$`_id`[i], <span class="hljs-string">"_segmentationMask.jpg"</span>)
+  download.file(url=getURL, destfile = saveFile, quiet = <span class="hljs-literal">TRUE</span>, method=<span class="hljs-string">"auto"</span>, mode=<span class="hljs-string">"wb"</span>)
+}
+</code></pre>
+<h1 id="annotations">Annotations</h1>
+
+      </div>
+      <div class="dark-box">
+        
+          <div class="lang-selector">
+            
+              
+                <a href="#" data-language-name="python">Python</a>
+              
+            
+              
+                <a href="#" data-language-name="R">R</a>
+              
+            
+          </div>
+        
+      </div>
+    </div>
+  </body>
+</html>
