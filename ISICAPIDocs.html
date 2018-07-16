@@ -43,7 +43,7 @@ window.onpopstate = function() {
 
   </head>
 
-  <body data-languages="[&quot;python&quot;,&quot;R&quot;]">
+  <body data-languages="[&quot;python&quot;,&quot;r&quot;]">
     <a href="#" id="nav-button">
       <span>
         NAV
@@ -60,7 +60,7 @@ window.onpopstate = function() {
             
           
             
-              <a href="#" data-language-name="R">R</a>
+              <a href="#" data-language-name="r">R</a>
             
           
         </div>
@@ -75,7 +75,7 @@ window.onpopstate = function() {
 	  	<ul class="toc-list-h1">
         
           <li>
-            <a href="#ISIC Archive API" class="toc-h1 toc-link" data-title="ISIC Archive API Documentation">ISIC Archive API Documentation</a>
+            <a href="#Swagger-Petstore" class="toc-h1 toc-link" data-title="ISIC Archive API Documentation">ISIC Archive API Documentation</a>
             
           </li>
         
@@ -212,7 +212,7 @@ window.onpopstate = function() {
     <div class="page-wrapper">
       <div class="dark-box"></div>
       <div class="content">
-        <h1 id="ISIC Archive API">ISIC Archive API Documentation</h1>
+        <h1 id="Swagger-Petstore">ISIC Archive API Documentation</h1> 
 <blockquote>
 <p>Scroll down for code samples, example requests and responses. Select a language for code samples from the tabs above or the mobile navigation menu.</p>
 </blockquote>
@@ -225,7 +225,7 @@ window.onpopstate = function() {
 <li><strong>Superpixel</strong>: A group/cluster of pixels with reasonably similar color. An image with dimensions 3000x2000 pixels (6 Megapixels) may result in a superpixel map of 300 superpixel tiles. This makes human markup and annotation of images much easier. For images on the ISIC Archive, superpixels are generated using the SLIC algorithm.</li>
 <li><strong>Segmentation</strong>: A method of identifying a lesion or feature on an image. An image of a skin lesion may be segmented to create a binary mask that allows the lesion to be easily isolated. Segmentations are created either manually by a subject matter expert, or by a segmentation algorithm and then reviewed by an expert.</li>
 <li><strong>Annotation</strong>: Manual markup of superpixels by a human (most often a subject matter expert). Annotations are used to denote that a certain area of an image has a particular feature (for example, a certain section of a melanoma image may show the feature Blue-White Veil). Annotations may be downloaded as binary masks for a particular study-image-user-feature combination, which allows for easy viewing of the annotated area.</li>
-<li><strong>Metadata</strong>: Usually refers to textual pieces of data that accompanies an image. This can include clinical metadata (patient age, gender, diagnosis), technical metadata (camera used, image dimensions), or unstructured metadata (all other data).</li>
+<li><strong>Metadata</strong>: Usually refers to textual pieces of data that accompanies an image. This can include clinical metadata (patient age, gender, diagnosis), technical metadata (camera used, image dimensions), or unstructured metadata (all other data)</li>
 </ul>
 <h1 id="libraries">Libraries</h1>
 <p>Libraries used in the code samples can be found at the links below:</p>
@@ -272,7 +272,7 @@ window.onpopstate = function() {
 <span class="hljs-comment">#Insert Username and Password Below</span>
 api = ISICApi(username=<span class="hljs-string">"ISIC"</span>, password=<span class="hljs-string">"ARCHIVE"</span>)
 </code></pre>
-<pre class="highlight tab tab-R"><code><span class="hljs-keyword">library</span>(httr)
+<pre class="highlight tab tab-r"><code><span class="hljs-keyword">library</span>(httr)
 <span class="hljs-keyword">library</span>(jsonlite)
 <span class="hljs-keyword">library</span>(gtools)
 
@@ -1045,7 +1045,7 @@ download.file(url=getURL, destfile = saveFile, quiet = <span class="hljs-literal
               
             
               
-                <a href="#" data-language-name="R">R</a>
+                <a href="#" data-language-name="r">R</a>
               
             
           </div>
