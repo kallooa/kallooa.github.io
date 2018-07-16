@@ -11,18 +11,18 @@
 
     <style>
     </style>
-    <link rel="stylesheet" media="screen" href="screen.css">
-    <link rel="stylesheet" media="print" href="print.css">
-    <link rel="stylesheet" media="screen" href="darkula.css">
+    <link rel="stylesheet" media="screen" href="pub/css/screen.css">
+    <link rel="stylesheet" media="print" href="pub/css/print.css">
+    <link rel="stylesheet" media="screen" href="pub/css/darkula.css">
     
-      <script src="_jquery.js"></script>
-<script src="_jquery.highlight.js"></script>
-<script src="_lunr.js"></script>
-<script src="_imagesloaded.min.js"></script>
-<script src="_energize.js"></script>
-<script src="_lang.js"></script>
-<script src="_search.js"></script>
-<script src="_toc.js"></script>
+      <script src="source/javascripts/lib/_jquery.js"></script>
+<script src="source/javascripts/lib/_jquery.highlight.js"></script>
+<script src="source/javascripts/lib/_lunr.js"></script>
+<script src="source/javascripts/lib/_imagesloaded.min.js"></script>
+<script src="source/javascripts/lib/_energize.js"></script>
+<script src="source/javascripts/app/_lang.js"></script>
+<script src="source/javascripts/app/_search.js"></script>
+<script src="source/javascripts/app/_toc.js"></script>
 <script type="text/javascript">
 $(function() {
   loadToc($('#toc'), '.toc-link', '.toc-list-h2, .toc-list-h3, .toc-list-h4, .toc-list-h5, .toc-list-h6', 10);
@@ -75,7 +75,12 @@ window.onpopstate = function() {
 	  	<ul class="toc-list-h1">
         
           <li>
-            <a href="#Swagger-Petstore" class="toc-h1 toc-link" data-title="ISIC Archive API Documentation">ISIC Archive API Documentation</a>
+            <a href="#ISIC Archive API" class="toc-h1 toc-link" data-title="ISIC Archive API Documentation">ISIC Archive API Documentation</a>
+            
+          </li>
+        
+          <li>
+            <a href="#terminology" class="toc-h1 toc-link" data-title="Terminology">Terminology</a>
             
           </li>
         
@@ -173,6 +178,25 @@ window.onpopstate = function() {
           <li>
             <a href="#annotations" class="toc-h1 toc-link" data-title="Annotations">Annotations</a>
             
+              <ul class="toc-list-h2">
+                
+                  <li>
+                    <a href="#get-list-of-annotations" class="toc-h2 toc-link" data-title="Get List of Annotations">Get List of Annotations</a>
+                    
+                  </li>
+                
+                  <li>
+                    <a href="#get-details-of-annotations" class="toc-h2 toc-link" data-title="Get Details of Annotations">Get Details of Annotations</a>
+                    
+                  </li>
+                
+                  <li>
+                    <a href="#download-annotation-masks" class="toc-h2 toc-link" data-title="Download Annotation Masks">Download Annotation Masks</a>
+                    
+                  </li>
+                
+              </ul>
+            
           </li>
         
 		</ul>
@@ -188,13 +212,21 @@ window.onpopstate = function() {
     <div class="page-wrapper">
       <div class="dark-box"></div>
       <div class="content">
-        <h1 id="Swagger-Petstore">ISIC Archive API Documentation</h1>
+        <h1 id="ISIC Archive API">ISIC Archive API Documentation</h1>
 <blockquote>
 <p>Scroll down for code samples, example requests and responses. Select a language for code samples from the tabs above or the mobile navigation menu.</p>
 </blockquote>
 <p>Welcome to the ISIC Archive API! You can use our API to access numerous endpoints, which will allow you to query our database to access images and associated data.</p>
 <p>We have language bindings in Python and R! You can view code examples in the dark area to the right, and you can switch the programming language of the examples with the tabs at the top.</p>
 <p><b>A full list of API endpoints can be found at: <a href="https://isic-archive.com/api/v1">https://isic-archive.com/api/v1</a></b></p>
+<h1 id="terminology">Terminology</h1>
+<ul>
+<li><strong>Image</strong>: The most basic unit of data in the ISIC Archive. All other pieces of data, including annotations, segmentations, and superpixels, are linked to images.</li>
+<li><strong>Superpixel</strong>: A group/cluster of pixels with reasonably similar color. An image with dimensions 3000x2000 pixels (6 Megapixels) may result in a superpixel map of 300 superpixel tiles. This makes human markup and annotation of images much easier. For images on the ISIC Archive, superpixels are generated using the SLIC algorithm.</li>
+<li><strong>Segmentation</strong>: A method of identifying a lesion or feature on an image. An image of a skin lesion may be segmented to create a binary mask that allows the lesion to be easily isolated. Segmentations are created either manually by a subject matter expert, or by a segmentation algorithm and then reviewed by an expert.</li>
+<li><strong>Annotation</strong>: Manual markup of superpixels by a human (most often a subject matter expert). Annotations are used to denote that a certain area of an image has a particular feature (for example, a certain section of a melanoma image may show the feature Blue-White Veil). Annotations may be downloaded as binary masks for a particular study-image-user-feature combination, which allows for easy viewing of the annotated area.</li>
+<li><strong>Metadata</strong>: Usually refers to textual pieces of data that accompanies an image. This can include clinical metadata (patient age, gender, diagnosis), technical metadata (camera used, image dimensions), or unstructured metadata (all other data).</li>
+</ul>
 <h1 id="libraries">Libraries</h1>
 <p>Libraries used in the code samples can be found at the links below:</p>
 <ul>
@@ -270,6 +302,7 @@ remove(password)
 </ul>
 </li>
 </ul>
+<p><strong>Arguments used for the /image endpoint:</strong></p>
 <table>
 <thead>
 <tr>
@@ -306,6 +339,7 @@ remove(password)
 </tr>
 </tbody>
 </table>
+<p>[ * denotes that argument is mandatory]</p>
 <blockquote>
 <p>Code Sample</p>
 </blockquote>
@@ -325,6 +359,7 @@ imageList = get_data(desired_endpoint, logindata)
 </ul>
 </li>
 </ul>
+<p><strong>Arguments used for the /image/{image_id} endpoint:</strong></p>
 <table>
 <thead>
 <tr>
@@ -335,12 +370,13 @@ imageList = get_data(desired_endpoint, logindata)
 </thead>
 <tbody>
 <tr>
-<td>image_id</td>
+<td>image_id*</td>
 <td>The '_id' field of records returned from the /image endpoint</td>
 <td>5436e3abbae478396759f0cf (default:empty)</td>
 </tr>
 </tbody>
 </table>
+<p>[ * denotes that argument is mandatory]</p>
 <blockquote>
 <p>Code Sample</p>
 </blockquote>
@@ -397,6 +433,7 @@ write.csv(imageMetadata, <span class="hljs-string">'imageMetadata.csv'</span>, r
 </ul>
 </li>
 </ul>
+<p><strong>Arguments used for the /image/{image_id}/download endpoint:</strong></p>
 <table>
 <thead>
 <tr>
@@ -407,12 +444,13 @@ write.csv(imageMetadata, <span class="hljs-string">'imageMetadata.csv'</span>, r
 </thead>
 <tbody>
 <tr>
-<td>image_id</td>
+<td>image_id*</td>
 <td>The '_id' field of records returned from the /image endpoint</td>
 <td>5436e3abbae478396759f0cf (default:empty)</td>
 </tr>
 </tbody>
 </table>
+<p>[ * denotes that argument is mandatory]</p>
 <p>Notes:</p>
 <ul>
 <li>Replace /download with /thumbnail to download thumbnails instead of full-size images</li>
@@ -467,6 +505,7 @@ savePath = <span class="hljs-string">"ISICArchive/"</span>
 </ul>
 </li>
 </ul>
+<p><strong>Arguments used for the /study endpoint:</strong></p>
 <table>
 <thead>
 <tr>
@@ -498,6 +537,7 @@ savePath = <span class="hljs-string">"ISICArchive/"</span>
 </tr>
 </tbody>
 </table>
+<p>[ * denotes that argument is mandatory]</p>
 <blockquote>
 <p>Code Sample</p>
 </blockquote>
@@ -517,6 +557,7 @@ studyList = get_data(desired_endpoint, logindata)
 </ul>
 </li>
 </ul>
+<p><strong>Arguments used for the /study/{study_id} endpoint:</strong></p>
 <table>
 <thead>
 <tr>
@@ -527,7 +568,7 @@ studyList = get_data(desired_endpoint, logindata)
 </thead>
 <tbody>
 <tr>
-<td>study_id</td>
+<td>study_id*</td>
 <td>The '_id' field of records returned from the /study endpoint</td>
 <td>573f11119fc3c132505c0ee7 (default: empty)</td>
 </tr>
@@ -538,6 +579,7 @@ studyList = get_data(desired_endpoint, logindata)
 </tr>
 </tbody>
 </table>
+<p>[ * denotes that argument is mandatory]</p>
 <p>Notes:</p>
 <ul>
 <li>This endpoint returns the study ID, date created, study description (if available), and list of images. The list of images included in a study is usually the data of interest from this endpoint</li>
@@ -574,6 +616,7 @@ write.csv(studyData_images, <span class="hljs-string">'studyDataImages.csv'</spa
 </ul>
 </li>
 </ul>
+<p><strong>Arguments used for the /image/{image_id}/superpixels endpoint:</strong></p>
 <table>
 <thead>
 <tr>
@@ -584,12 +627,13 @@ write.csv(studyData_images, <span class="hljs-string">'studyDataImages.csv'</spa
 </thead>
 <tbody>
 <tr>
-<td>image_id</td>
+<td>image_id*</td>
 <td>The '_id' field of records returned from the /image endpoint</td>
 <td>5436e3abbae478396759f0cf (default:empty)</td>
 </tr>
 </tbody>
 </table>
+<p>[ * denotes that argument is mandatory]</p>
 <blockquote>
 <p>Code Sample</p>
 </blockquote>
@@ -640,6 +684,7 @@ savePath = <span class="hljs-string">"ISICArchive/"</span>
 </ul>
 </li>
 </ul>
+<p><strong>Arguments used for the /segmentation endpoint:</strong></p>
 <table>
 <thead>
 <tr>
@@ -650,12 +695,13 @@ savePath = <span class="hljs-string">"ISICArchive/"</span>
 </thead>
 <tbody>
 <tr>
-<td>image_id</td>
+<td>image_id*</td>
 <td>The '_id' field of the image for which available segmentations are being requested</td>
 <td>5436e3abbae478396759f0cf (default:empty)</td>
 </tr>
 </tbody>
 </table>
+<p>[ * denotes that argument is mandatory]</p>
 <blockquote>
 <p>Code Sample</p>
 </blockquote>
@@ -676,6 +722,7 @@ imageSegmentationData = get_data(desired_endpoint, logindata)
 </ul>
 </li>
 </ul>
+<p><strong>Arguments used for the /segmentation/{segmentation_id} endpoint:</strong></p>
 <table>
 <thead>
 <tr>
@@ -686,12 +733,13 @@ imageSegmentationData = get_data(desired_endpoint, logindata)
 </thead>
 <tbody>
 <tr>
-<td>segmentation_id</td>
+<td>segmentation_id*</td>
 <td>The '_id' field of the record from the /segmentation endpoint</td>
 <td>5463934bbae47821f88025ad (default:empty)</td>
 </tr>
 </tbody>
 </table>
+<p>[ * denotes that argument is mandatory]</p>
 <blockquote>
 <p>Code Sample</p>
 </blockquote>
@@ -713,6 +761,7 @@ segmentationData = get_data(desired_endpoint, logindata)
 </ul>
 </li>
 </ul>
+<p><strong>Arguments used for the /segmentation/{segmentation_id}/mask endpoint:</strong></p>
 <table>
 <thead>
 <tr>
@@ -723,12 +772,13 @@ segmentationData = get_data(desired_endpoint, logindata)
 </thead>
 <tbody>
 <tr>
-<td>segmentation_id</td>
+<td>segmentation_id*</td>
 <td>The '_id' field of the record from the /segmentation endpoint</td>
 <td>5463934bbae47821f88025ad (default:empty)</td>
 </tr>
 </tbody>
 </table>
+<p>[ * denotes that argument is mandatory]</p>
 <blockquote>
 <p>Code Sample</p>
 </blockquote>
@@ -773,6 +823,217 @@ savePath = <span class="hljs-string">"ISICArchive/"</span>
 }
 </code></pre>
 <h1 id="annotations">Annotations</h1>
+<h2 id="get-list-of-annotations">Get List of Annotations</h2>
+<ul>
+<li>Endpoints used:
+<ul>
+<li><a href="https://isic-archive.com/api/v1/study">https://isic-archive.com/api/v1/study</a></li>
+<li><a href="https://isic-archive.com/api/v1/annotation">https://isic-archive.com/api/v1/annotation</a></li>
+</ul>
+</li>
+</ul>
+<p><strong>Arguments used for the /annotation endpoint:</strong></p>
+<table>
+<thead>
+<tr>
+<th>Argument</th>
+<th>Description</th>
+<th>Example Value</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>study_id*</td>
+<td>The '_id' field of the record from the /study endpoint</td>
+<td>573f11119fc3c132505c0ee7 (default:empty)</td>
+</tr>
+<tr>
+<td>user_id</td>
+<td>The '_id' value (21 character) for the user to be included in the filter</td>
+<td>573f11119fc3c132505c0ee7 (default:empty)</td>
+</tr>
+<tr>
+<td>image_id</td>
+<td>The '_id' value of the image to be included in the filter</td>
+<td>573f11119fc3c132505c0ee7 (default:empty)</td>
+</tr>
+<tr>
+<td>state</td>
+<td>The state of the user annotation to be included</td>
+<td>complete (default: empty)</td>
+</tr>
+</tbody>
+</table>
+<p>[ * denotes that argument is mandatory]</p>
+<p>Notes:</p>
+<ul>
+<li>Annotations are Study-oriented, keep that in mind when making annotation requests to the API</li>
+<li>Based on a query using the study_id only, you can then select a user_id or image_id from the returned records, and run query again to further refine the data</li>
+</ul>
+<blockquote>
+<p>Code Sample</p>
+</blockquote>
+<pre class="highlight tab tab-python"><code><span class="hljs-comment">#Insert Username and Password Below</span>
+api = ISICApi(username=<span class="hljs-string">"ISIC"</span>, password=<span class="hljs-string">"ARCHIVE"</span>)
+studyList = api.getJson(<span class="hljs-string">'study?limit=50&amp;state=complete'</span>)
+selectedStudy = studyList[<span class="hljs-number">1</span>][<span class="hljs-string">'_id'</span>] <span class="hljs-comment">#Just an example. Can also use selectedStudy = 'INSERT STUDY ID'</span>
+listOfStudyAnnotations = api.getJson(<span class="hljs-string">'annotation?studyId='</span>+selectedStudy)
+
+</code></pre>
+<pre class="highlight tab tab-R"><code>desired_endpoint = <span class="hljs-string">"https://isic-archive.com/api/v1/study?limit=10"</span>
+studyList = get_data(desired_endpoint, logindata)
+selectedStudy = studyList$`_id`[<span class="hljs-number">2</span>] <span class="hljs-comment">#Just an example. Can also use selectedStudy = 'INSERT STUDY ID'</span>
+
+desired_endpoint = paste0(<span class="hljs-string">'https://isic-archive.com/api/v1/annotation?studyId='</span>, selectedStudy)
+listOfStudyAnnotations = get_data(desired_endpoint, logindata)
+</code></pre>
+<h2 id="get-details-of-annotations">Get Details of Annotations</h2>
+<ul>
+<li>Endpoints used:
+<ul>
+<li><a href="https://isic-archive.com/api/v1/study">https://isic-archive.com/api/v1/study</a></li>
+<li><a href="https://isic-archive.com/api/v1/annotation/%7Bannotation_id%7D">https://isic-archive.com/api/v1/annotation/{annotation_id}</a></li>
+</ul>
+</li>
+</ul>
+<p><strong>Arguments used for the /annotation/{annotation_id} endpoint:</strong></p>
+<table>
+<thead>
+<tr>
+<th>Argument</th>
+<th>Description</th>
+<th>Example Value</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>annotation_id*</td>
+<td>The '_id' field of the record from the /annotation endpoint</td>
+<td>5a32cde91165975cf58a469c (default:empty)</td>
+</tr>
+</tbody>
+</table>
+<p>[ * denotes that argument is mandatory]</p>
+<p>Notes:</p>
+<ul>
+<li>the /annotation/{annotation_id} endpoint provides details such as the names of features annotated, which is required data if you wish to download annotation masks</li>
+</ul>
+<blockquote>
+<p>Code Sample</p>
+</blockquote>
+<pre class="highlight tab tab-python"><code><span class="hljs-comment">#Insert Username and Password Below</span>
+api = ISICApi(username=<span class="hljs-string">"ISIC"</span>, password=<span class="hljs-string">"ARCHIVE"</span>)
+studyList = api.getJson(<span class="hljs-string">'study?limit=50&amp;state=complete'</span>)
+selectedStudy = studyList[<span class="hljs-number">1</span>][<span class="hljs-string">'_id'</span>] <span class="hljs-comment">#Just an example. Can also use selectedStudy = 'INSERT STUDY ID'</span>
+listOfStudyAnnotations = api.getJson(<span class="hljs-string">'annotation?studyId='</span>+selectedStudy)
+annotationId = listOfStudyAnnotations[<span class="hljs-number">0</span>][<span class="hljs-string">'_id'</span>]
+annotationDetails = api.getJson(<span class="hljs-string">'annotation/'</span>+annotationId)
+</code></pre>
+<pre class="highlight tab tab-R"><code>desired_endpoint = <span class="hljs-string">"https://isic-archive.com/api/v1/study?limit=10"</span>
+studyList = get_data(desired_endpoint, logindata)
+selectedStudy = studyList$`_id`[<span class="hljs-number">2</span>] <span class="hljs-comment">#Just an example. Can also use selectedStudy = 'INSERT STUDY ID'</span>
+
+desired_endpoint = paste0(<span class="hljs-string">'https://isic-archive.com/api/v1/annotation?studyId='</span>, selectedStudy)
+listOfStudyAnnotations = get_data(desired_endpoint, logindata)
+annotationId = listOfStudyAnnotations$`_id`[<span class="hljs-number">1</span>]
+
+desired_endpoint = paste0(<span class="hljs-string">'https://isic-archive.com/api/v1/annotation/'</span>, annotationId)
+annotationDetails = get_data(desired_endpoint, logindata)
+</code></pre>
+<h2 id="download-annotation-masks">Download Annotation Masks</h2>
+<ul>
+<li>Endpoints used:
+<ul>
+<li><a href="https://isic-archive.com/api/v1/study">https://isic-archive.com/api/v1/study</a></li>
+<li><a href="https://isic-archive.com/api/v1/annotation">https://isic-archive.com/api/v1/annotation</a></li>
+<li><a href="https://isic-archive.com/api/v1/annotation/%7Bannotation_id%7D">https://isic-archive.com/api/v1/annotation/{annotation_id}</a></li>
+<li><a href="https://isic-archive.com/api/v1/annotation/%7Bannotation_id%7D/%7Bfeature_id%7D/mask">https://isic-archive.com/api/v1/annotation/{annotation_id}/{feature_id}/mask</a></li>
+</ul>
+</li>
+</ul>
+<p><strong>Arguments used for the /annotation/{annotation_id}/{feature_id}/mask endpoint:</strong></p>
+<table>
+<thead>
+<tr>
+<th>Argument</th>
+<th>Description</th>
+<th>Example Value</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>annotation_id*</td>
+<td>The '_id' field of the record from the /annotation endpoint</td>
+<td>5a32cde91165975cf58a469c (default:empty)</td>
+</tr>
+<tr>
+<td>feature_id*</td>
+<td>The features are listed in the 'markups' field of the record returned from the /annotation/{annotation_id} endpoint</td>
+<td>Shiny white structures : Shiny white blotches and strands (default:empty)</td>
+</tr>
+</tbody>
+</table>
+<p>[ * denotes that argument is mandatory]</p>
+<blockquote>
+<p>Code Sample</p>
+</blockquote>
+<pre class="highlight tab tab-python"><code><span class="hljs-keyword">import</span> urllib
+<span class="hljs-keyword">import</span> os
+<span class="hljs-keyword">import</span> re
+
+savePath = <span class="hljs-string">'ISICArchive/'</span>
+
+<span class="hljs-keyword">if</span> <span class="hljs-keyword">not</span> os.path.exists(savePath):
+    os.makedirs(savePath)
+
+<span class="hljs-comment">#Insert Username and Password Below</span>
+api = ISICApi(username=<span class="hljs-string">"ISIC"</span>, password=<span class="hljs-string">"ARCHIVE"</span>)
+studyList = api.getJson(<span class="hljs-string">'study?limit=50&amp;state=complete'</span>)
+selectedStudy = studyList[<span class="hljs-number">1</span>][<span class="hljs-string">'_id'</span>] <span class="hljs-comment">#Just an example. Can also use selectedStudy = 'INSERT STUDY ID'</span>
+listOfStudyAnnotations = api.getJson(<span class="hljs-string">'annotation?studyId='</span>+selectedStudy)
+annotationId = listOfStudyAnnotations[<span class="hljs-number">0</span>][<span class="hljs-string">'_id'</span>]
+imageId = listOfStudyAnnotations[<span class="hljs-number">0</span>][<span class="hljs-string">'imageId'</span>]
+studyId = listOfStudyAnnotations[<span class="hljs-number">0</span>][<span class="hljs-string">'studyId'</span>]
+userId = listOfStudyAnnotations[<span class="hljs-number">0</span>][<span class="hljs-string">'userId'</span>]
+annotationDetails = api.getJson(<span class="hljs-string">'annotation/'</span>+annotationId)
+featureId = list(annotationDetails[<span class="hljs-string">'markups'</span>].keys())[<span class="hljs-number">0</span>] <span class="hljs-comment">#select the first feature returned</span>
+featureIdForFilename = re.sub(<span class="hljs-string">r"[^A-Za-z]+"</span>, <span class="hljs-string">''</span>, featureId)
+
+print(featureId)
+maskFileResp = api.get(<span class="hljs-string">'annotation/%s/%s/mask'</span> % (annotationId, featureId))
+maskFileResp.raise_for_status()
+maskFileOutputPath = os.path.join(savePath, <span class="hljs-string">'%s_%s_%s_%s.jpg'</span> % (studyId, imageId, userId, featureIdForFilename)) 
+<span class="hljs-keyword">with</span> open(maskFileOutputPath, <span class="hljs-string">'wb'</span>) <span class="hljs-keyword">as</span> maskFileOutputStream:
+    <span class="hljs-keyword">for</span> chunk <span class="hljs-keyword">in</span> maskFileResp:
+        maskFileOutputStream.write(chunk)
+</code></pre>
+<pre class="highlight tab tab-R"><code>savePath = <span class="hljs-string">"ISICArchive/"</span>
+
+<span class="hljs-keyword">if</span> (!dir.exists(savePath)){
+  dir.create(savePath)
+}
+
+desired_endpoint = <span class="hljs-string">"https://isic-archive.com/api/v1/study?limit=10"</span>
+studyList = get_data(desired_endpoint, logindata)
+selectedStudy = studyList$`_id`[<span class="hljs-number">2</span>] <span class="hljs-comment">#Just an example. Can also use selectedStudy = 'INSERT STUDY ID'</span>
+
+desired_endpoint = paste0(<span class="hljs-string">'https://isic-archive.com/api/v1/annotation?studyId='</span>, selectedStudy)
+listOfStudyAnnotations = get_data(desired_endpoint, logindata)
+annotationId = listOfStudyAnnotations$`_id`[<span class="hljs-number">1</span>]
+imageId = listOfStudyAnnotations$imageId[<span class="hljs-number">1</span>]
+studyId = listOfStudyAnnotations$studyId[<span class="hljs-number">1</span>]
+userId = listOfStudyAnnotations$userId[<span class="hljs-number">1</span>]
+
+desired_endpoint = paste0(<span class="hljs-string">'https://isic-archive.com/api/v1/annotation/'</span>, annotationId)
+annotationDetails = get_data(desired_endpoint, logindata)
+
+featureId = names(annotationDetails$markups)[<span class="hljs-number">2</span>]
+featureIdForFilename = gsub(featureId, pattern=<span class="hljs-string">"[^A-za-z]"</span>, replacement=<span class="hljs-string">""</span>)
+
+getURL = paste0(<span class="hljs-string">"https://isic-archive.com/api/v1/annotation/"</span>, annotationId, <span class="hljs-string">"/"</span>, featureId, <span class="hljs-string">"/mask"</span>)
+saveFile = paste0(savePath, studyId, <span class="hljs-string">"_"</span>, imageId, <span class="hljs-string">"_"</span>, userId, <span class="hljs-string">"_"</span>, featureIdForFilename, <span class="hljs-string">".jpg"</span>)
+download.file(url=getURL, destfile = saveFile, quiet = <span class="hljs-literal">TRUE</span>, method=<span class="hljs-string">"auto"</span>, mode=<span class="hljs-string">"wb"</span>)
+</code></pre>
 
       </div>
       <div class="dark-box">
