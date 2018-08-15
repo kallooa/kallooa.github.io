@@ -1,0 +1,663 @@
+[
+    {
+        "Group": 1,
+        "LevelA": "Benign",
+        "LevelB": "Melanocytic nevus",
+        "LevelC": [
+            "Nevus, NOS, Junctional",
+            "Nevus, NOS, Compound",
+            "Nevus, NOS, Dermal (Intradermal)"
+        ]
+    },
+    {
+        "Group": 2,
+        "LevelA": "Benign",
+        "LevelB": "Melanocytic nevus",
+        "LevelC": [
+            "Nevus, Atypical, NOS",
+            "Nevus, Clark",
+            "Nevus, Dysplastic"
+        ]
+    },
+    {
+        "Group": 3,
+        "LevelA": "Benign",
+        "LevelB": "Melanocytic nevus",
+        "LevelC": [
+            "Nevus, Spitz (syn: Spindle and Epithelioid Cell Nevus)",
+            "Nevus, Reed (syn: Pigmented Spindle Cell Nevus)",
+            "Nevus, Unna",
+            "Nevus, Miescher",
+            "Nevus, BAP-1 Deficient (Wiesner)"
+        ]
+    },
+    {
+        "Group": 4,
+        "LevelA": "Benign",
+        "LevelB": "Melanocytic nevus",
+        "LevelC": [
+            "Nevus, Congenital (per history - present at birth or within 1 year of infancy)",
+            "Nevus, Congenital Pattern (per histopathology)"
+        ]
+    },
+    {
+        "Group": 5,
+        "LevelA": "Benign",
+        "LevelB": "Melanocytic nevus",
+        "LevelC": [
+            "Nevus, Spilus",
+            "Nevus, Agminated"
+        ]
+    },
+    {
+        "Group": 6,
+        "LevelA": "Benign",
+        "LevelB": "Melanocytic nevus",
+        "LevelC": [
+            "Blue nevus, NOS",
+            "Blue nevus, Common",
+            "Blue nevus, Cellular",
+            "Blue nevus, Epithelioid",
+            "Blue nevus, Deep penetrating"
+        ]
+    },
+    {
+        "Group": 7,
+        "LevelA": "Benign",
+        "LevelB": "Melanocytic nevus",
+        "LevelC": [
+            "Nevus, Combined, NOS",
+            "Nevus, Combined (specify details of 2 components)"
+        ]
+    },
+    {
+        "Group": 8,
+        "LevelA": "Benign",
+        "LevelB": "Melanocytic nevus",
+        "LevelC": [
+            "Nevus, Acral (not falling into one of the other categories); Specify site:___",
+            "Nevus, Special site nevus (genital, breast, axillary; not falling into one of the other categories); Specify site:___",
+            "Nevus, Recurrent / persistent",
+            "Nevus, Halo",
+            "Nevus, Balloon cell",
+            "Nevus, Meyerson"
+        ]
+    },
+    {
+        "Group": 9,
+        "LevelA": "Benign",
+        "LevelB": "Melanocytic nevus",
+        "LevelC": [
+            "Pigmented epithelioid melanocytoma",
+            "Nevus, Other; Specify:_________"
+        ]
+    },
+    {
+        "Group": 10,
+        "LevelA": "Benign",
+        "LevelB": "Flat melanotic pigmentations (not melanocytic nevus)",
+        "LevelC": [
+            "Lentigo simplex (syn: simple lentigo)",
+            "Ink-spot lentigo (syn: reticulated lentigo)",
+            "Mucosal melanotic macule (syn: mucosal lentigo); Specify site:___",
+            "Cafe au lait macule / patch"
+        ]
+    },
+    {
+        "Group": 11,
+        "LevelA": "Benign",
+        "LevelB": "Flat melanotic pigmentations (not melanocytic nevus)",
+        "LevelC": [
+            "Mongolian spot",
+            "Nevus of Ito",
+            "Nevus of Ota",
+            "Other; Specify:_________"
+        ]
+    },
+    {
+        "Group": 12,
+        "LevelA": "Benign",
+        "LevelB": "Epidermal differentiation",
+        "LevelC": [
+            "Solar Lentigo",
+            "Seborrheic keratosis",
+            "Lichen planus like keratosis (syn: lichenoid keratosis)"
+        ]
+    },
+    {
+        "Group": 13,
+        "LevelA": "Benign",
+        "LevelB": "Epidermal differentiation",
+        "LevelC": [
+            "Clear cell acanthoma (syn: Pale cell acanthoma)",
+            "Large cell acanthoma",
+            "Porokeratosis",
+            "More options: Epidermolytic acanthoma; Warty dyskeratoma; Acantholytic acanthoma; Melanoacanthoma",
+            "Other; Specify:_________"
+        ]
+    },
+    {
+        "Group": 14,
+        "LevelA": "Benign",
+        "LevelB": "Adnexal epithelial proliferations, Follicular / Infundibular",
+        "LevelC": [
+            "Trichoblastoma, NOS",
+            "Trichoepithelioma, NOS (syn: Trichoblastoma, cribriform);",
+            "Trichoepithelioma, Desmoplastic"
+        ]
+    },
+    {
+        "Group": 15,
+        "LevelA": "Benign",
+        "LevelB": "Adnexal epithelial proliferations, Follicular / Infundibular",
+        "LevelC": [
+            "Angiofibroma / fibrous papule"
+        ]
+    },
+    {
+        "Group": 16,
+        "LevelA": "Benign",
+        "LevelB": "Adnexal epithelial proliferations, Follicular / Infundibular",
+        "LevelC": [
+            "Other subtypes, part 1: Pilomatricoma; Tricholemmoma; Trichofolliculoma; Pilar sheath acanthoma",
+            "Other subtypes, part 2: Tumor of follicular infundibulum; Nevus comedonicus; Other, specify:_______________"
+        ]
+    },
+    {
+        "Group": 17,
+        "LevelA": "Benign",
+        "LevelB": "Adnexal epithelial proliferations, Sebaceous",
+        "LevelC": [
+            "Sebaceous hyperplasia",
+            "Sebaceous adenoma",
+            "Sebaceoma",
+            "Nevus sebaceus",
+            "Others: Fordyce spots / Montgomery tubercles; Steatocystoma; Fibrofolliculoma / trichodiscoma; Other, specify:____"
+        ]
+    },
+    {
+        "Group": 18,
+        "LevelA": "Benign",
+        "LevelB": "Adnexal epithelial proliferations, Apocrine / Eccrine",
+        "LevelC": [
+            "Syringoma",
+            "Poroma",
+            "Hidrocystoma / cystadenoma",
+            "Other subtype, part 1:  Hidradenoma; Spiradenoma; Cylindoma;  mixed tumor (chondroid syringioma)",
+            "Other subtype, part 2: Syringocystadenoma papilliferum; Hidradenoma papilliferum; Tubular adenoma",
+            "Other subtype, part 3: Syringofibroadenoma; Supernumerary nipple; Fibroadenoma; Myoepithelioma",
+            "Other specific subtype, please specify:___________"
+        ]
+    },
+    {
+        "Group": 19,
+        "LevelA": "Benign",
+        "LevelB": "Mesenchymal proliferations and hamartoma",
+        "LevelC": [
+            "Dermatofibroma (syn: Fibrous histiocytoma)"
+        ]
+    },
+    {
+        "Group": 20,
+        "LevelA": "Benign",
+        "LevelB": "Mesenchymal proliferations and hamartoma",
+        "LevelC": [
+            "Scar, NOS",
+            "Scar, Hypertrophic",
+            "Scar, Keloid",
+            "Scar, Other, specify:____"
+        ]
+    },
+    {
+        "Group": 21,
+        "LevelA": "Benign",
+        "LevelB": "Mesenchymal proliferations and hamartoma",
+        "LevelC": [
+            "Acrochordon / skin tag"
+        ]
+    },
+    {
+        "Group": 22,
+        "LevelA": "Benign",
+        "LevelB": "Mesenchymal proliferations and hamartoma",
+        "LevelC": [
+            "Fibroma"
+        ]
+    },
+    {
+        "Group": 23,
+        "LevelA": "Benign",
+        "LevelB": "Mesenchymal proliferations and hamartoma",
+        "LevelC": [
+            "Dermatomyofibroma",
+            "Smooth muscle hamartoma / Becker nevus",
+            "Leiomyoma, cutaneous"
+        ]
+    },
+    {
+        "Group": 24,
+        "LevelA": "Benign",
+        "LevelB": "Mesenchymal proliferations and hamartoma",
+        "LevelC": [
+            "Lipoma, NOS",
+            "Lipoma, Spindle cell / pleomorphic",
+            "Angiolipoma",
+            "Nevus lipomatosus superficialis"
+        ]
+    },
+    {
+        "Group": 25,
+        "LevelA": "Benign",
+        "LevelB": "Mesenchymal proliferations and hamartoma",
+        "LevelC": [
+            "Hemorrhage"
+        ]
+    },
+    {
+        "Group": 26,
+        "LevelA": "Benign",
+        "LevelB": "Mesenchymal proliferations and hamartoma",
+        "LevelC": [
+            "Hemangioma, NOS",
+            "Hemangioma, Cherry (syn: cherry angioma)",
+            "Hemangioma, Infantile",
+            "Hemangioma, Hobnail",
+            "Hemangioma, Tufted",
+            "Hemangioma, other, specify:____________"
+        ]
+    },
+    {
+        "Group": 27,
+        "LevelA": "Benign",
+        "LevelB": "Mesenchymal proliferations and hamartoma",
+        "LevelC": [
+            "Angiokeratoma",
+            "Pyogenic granuloma",
+            "Glomus tumor",
+            "Angioleiomyoma"
+        ]
+    },
+    {
+        "Group": 28,
+        "LevelA": "Benign",
+        "LevelB": "Mesenchymal proliferations and hamartoma",
+        "LevelC": [
+            "Capillary vascular malformation",
+            "Venous malformation",
+            "Arterio-venous malformation",
+            "Other vascular malformation / hamartoma, specify:_______",
+            "Lymphangioma (superficial lymphatic malformation)"
+        ]
+    },
+    {
+        "Group": 29,
+        "LevelA": "Benign",
+        "LevelB": "Mesenchymal proliferations and hamartoma",
+        "LevelC": [
+            "Hemangioendothelioma, NOS",
+            "Hemangioendothelioma, Kaposiform",
+            "Hemangioendothelioma, Other, specify:____"
+        ]
+    },
+    {
+        "Group": 30,
+        "LevelA": "Benign",
+        "LevelB": "Mesenchymal proliferations and hamartoma",
+        "LevelC": [
+            "Vascular, Other, specify:____",
+            "Mesenchymal, Other, specify:____"
+        ]
+    },
+    {
+        "Group": 31,
+        "LevelA": "Benign",
+        "LevelB": "Neural proliferations",
+        "LevelC": [
+            "Neuroma"
+        ]
+    },
+    {
+        "Group": 32,
+        "LevelA": "Benign",
+        "LevelB": "Neural proliferations",
+        "LevelC": [
+            "Neurofibroma",
+            "Granular cell tumor",
+            "Schwannoma",
+            "Other subtype: Dermal nerve sheath myxoma; perineurioma; Other, specify:___________"
+        ]
+    },
+    {
+        "Group": 33,
+        "LevelA": "Benign",
+        "LevelB": "Inflammatory / granulomatous / depositions  / infectious diseases",
+        "LevelC": [
+            "Verruca, NOS",
+            "Verruca vulgaris (common wart)",
+            "Verruca plantaris (palmo-plantar wart)",
+            "Verruca plana (flat wart)",
+            "Molluscum Contagiosum"
+        ]
+    },
+    {
+        "Group": 34,
+        "LevelA": "Benign",
+        "LevelB": "Inflammatory / granulomatous / depositions  / infectious diseases",
+        "LevelC": [
+            "Mastocytoma, solitary"
+        ]
+    },
+    {
+        "Group": 35,
+        "LevelA": "Benign",
+        "LevelB": "Inflammatory / granulomatous / depositions  / infectious diseases",
+        "LevelC": [
+            "Juvenile xanthogranuloma"
+        ]
+    },
+    {
+        "Group": 36,
+        "LevelA": "Benign",
+        "LevelB": "Cysts",
+        "LevelC": [
+            "Cyst, NOS",
+            "Milium",
+            "Comedo",
+            "Infundibular / Epidermal cyst (Syn: Epidermoid-includion/Sebaceous/Keratin Cyst)",
+            "Trichilemmal  / isthmic-catagen / pilar cyst",
+            "Digital mucous cyst (Syn: Ganglion / Digital Myxoid cyst)",
+            "Cysts, Other, specify:___________"
+        ]
+    },
+    {
+        "Group": 37,
+        "LevelA": "Benign",
+        "LevelB": "Exogenous",
+        "LevelC": [
+            "Tattoo",
+            "Foreign body granuloma",
+            "Exogenous, other, Specify:________"
+        ]
+    },
+    {
+        "Group": 38,
+        "LevelA": "Benign",
+        "LevelB": "Collision, two benign proliferations",
+        "LevelC": [
+            "Collision, two benign proliferations"
+        ]
+    },
+    {
+        "Group": 39,
+        "LevelA": "Benign",
+        "LevelB": "Benign, Other or not readily classifiable",
+        "LevelC": [
+            "Benign, Other, Specify:"
+        ]
+    },
+    {
+        "Group": 40,
+        "LevelA": "Malignant",
+        "LevelB": "Melanoma",
+        "LevelC": [
+            "Melanoma in situ, NOS",
+            "Melanoma in situ, Lentigo maligna type / Melanoma in situ on chronically sun-exposed skin",
+            "Melanoma in situ, Acral / Acral-lentiginous",
+            "Melanoma in situ, Mucosal (Specify site: Lip, Oral mucosa, Genital, other:_____)",
+            "Melanoma in situ, Superficial spreading",
+            "Melanoma in situ, recurrent / persistent",
+            "Melanoma in situ, other type, specify:__________"
+        ]
+    },
+    {
+        "Group": 41,
+        "LevelA": "Malignant",
+        "LevelB": "Melanoma",
+        "LevelC": [
+            "Melanoma Invasive, NOS",
+            "Melanoma Invasive, Superficial spreading",
+            "Melanoma Invasive, on chronically sun-exposed skin / Lentigo maligna melanoma",
+            "Melanoma Invasive, Acral / Acral-lentiginous",
+            "Melanoma Invasive, Nodular",
+            "Melanoma Invasive, Desmoplastic (indicate if associated with lentigo maligna)",
+            "Melanoma Invasive, Nevoid",
+            "Melanoma Invasive, Spitzoid (melanoma predominantly resembling Spitz nevus / tumor)",
+            "Melanoma Invasive, Pigmented Spindle cell nevus like (melanoma predominantly resembling Reed's nevus)",
+            "Melanoma Invasive, Blue nevus-like",
+            "Melanoma Invasive, Recurrent / persistent",
+            "Melanoma Invasive, Mucosal (Specify site: Lip, Oral mucosa, Genital, other:_____)",
+            "Melanoma Invasive, Heavily pigmented melanoma (resembling epithelioid blue nevus or melanoma in animals)",
+            "Melanoma Invasive, Other subtype, specify:__________"
+        ]
+    },
+    {
+        "Group": 42,
+        "LevelA": "Malignant",
+        "LevelB": "Melanoma",
+        "LevelC": [
+            "Melanoma metastasis"
+        ]
+    },
+    {
+        "Group": 43,
+        "LevelA": "Malignant",
+        "LevelB": "Keratinocytic",
+        "LevelC": [
+            "Solar (actinic) keratosis"
+        ]
+    },
+    {
+        "Group": 44,
+        "LevelA": "Malignant",
+        "LevelB": "Keratinocytic",
+        "LevelC": [
+            "Solar cheilitis (solar keratosis of lip)"
+        ]
+    },
+    {
+        "Group": 45,
+        "LevelA": "Malignant",
+        "LevelB": "Keratinocytic",
+        "LevelC": [
+            "Other: Puva-associated keratosis; Arsenical-associated keratosis"
+        ]
+    },
+    {
+        "Group": 46,
+        "LevelA": "Malignant",
+        "LevelB": "Keratinocytic",
+        "LevelC": [
+            "Squamous cell carcinoma in situ, NOS",
+            "Squamous cell carcinoma in situ, Solar keratotic type",
+            "Squamous cell carcinoma in situ, Bowens disease"
+        ]
+    },
+    {
+        "Group": 47,
+        "LevelA": "Malignant",
+        "LevelB": "Keratinocytic",
+        "LevelC": [
+            "Bowenoid papulosis"
+        ]
+    },
+    {
+        "Group": 48,
+        "LevelA": "Malignant",
+        "LevelB": "Keratinocytic",
+        "LevelC": [
+            "Keratoacanthoma"
+        ]
+    },
+    {
+        "Group": 49,
+        "LevelA": "Malignant",
+        "LevelB": "Keratinocytic",
+        "LevelC": [
+            "Squamous cell carcinoma, 'invasive' - Differentiation not specified",
+            "Squamous cell carcinoma, 'invasive' - Well differentiated",
+            "Squamous cell carcinoma, 'invasive' - Moderately differentiated",
+            "Squamous cell carcinoma, 'invasive' - Poorly differentiated"
+        ]
+    },
+    {
+        "Group": 50,
+        "LevelA": "Malignant",
+        "LevelB": "Adnexal epithelial proliferations, Follicular",
+        "LevelC": [
+            "Basal cell carcinoma, NOS",
+            "Basal cell carcinoma, Superficial",
+            "Basal cell carcinoma, Nodular",
+            "Basal cell carcinoma, Micronodular",
+            "Basal cell carcinoma, Infiltrating",
+            "Basal cell carcinoma, Sclerosing / Morpheaform (morphoeic)",
+            "Baso-squamous carcinoma",
+            "Basal cell carcinoma with adnexal differentiation",
+            "Basal cell carcinoma with sarcomatoid differentiation",
+            "Basal cell carcinoma, Pigmented",
+            "Basal cell carcinoma, Fibroeipthelial (Pinkus)",
+            "Basal cell carcinoma, Combined subtypes (specify details of all components)",
+            "Basal cell carcinoma, Other subtype______________(specify)"
+        ]
+    },
+    {
+        "Group": 51,
+        "LevelA": "Malignant",
+        "LevelB": "Adnexal epithelial proliferations, Follicular",
+        "LevelC": [
+            "Others: matrical / pilomatrical carcinoma; proliferating trichilemmal Ca.; other_______ (specify)"
+        ]
+    },
+    {
+        "Group": 52,
+        "LevelA": "Malignant",
+        "LevelB": "Adnexal epithelial proliferations, Apocrine / Eccrine",
+        "LevelC": [
+            "Paget disease, mammary",
+            "Paget disease, extra-mammary"
+        ]
+    },
+    {
+        "Group": 53,
+        "LevelA": "Malignant",
+        "LevelB": "Adnexal epithelial proliferations, Apocrine / Eccrine",
+        "LevelC": [
+            "Microcystic adnexal carcinoma"
+        ]
+    },
+    {
+        "Group": 54,
+        "LevelA": "Malignant",
+        "LevelB": "Adnexal epithelial proliferations, Apocrine / Eccrine",
+        "LevelC": [
+            "Other subtype, part 1: Apocrine Ca; Tubular Ca; Malignant mixed tumor; Porocarcinoma",
+            "Other subtype, part 2: Hidradenocarcinoma; Mucinous Ca; Digital papillary Ca; Adenoid cystic Ca",
+            "Other subtype, part 3: Adnexal adenocarcinoma arising in association with spiradenoma / cylindroma /spiradenocylindroma",
+            "Other specific subtype, please specify:___________",
+            "Adnexal adenocarcinoma, specific subtype not specified"
+        ]
+    },
+    {
+        "Group": 55,
+        "LevelA": "Malignant",
+        "LevelB": "Adnexal epithelial proliferations, Sebaceous",
+        "LevelC": [
+            "Sebaceous carcinoma"
+        ]
+    },
+    {
+        "Group": 56,
+        "LevelA": "Malignant",
+        "LevelB": "Mesenchymal proliferations",
+        "LevelC": [
+            "Dermatofibrosarcoma protuberans (DFSP)"
+        ]
+    },
+    {
+        "Group": 57,
+        "LevelA": "Malignant",
+        "LevelB": "Mesenchymal proliferations",
+        "LevelC": [
+            "Angiosarcoma"
+        ]
+    },
+    {
+        "Group": 58,
+        "LevelA": "Malignant",
+        "LevelB": "Mesenchymal proliferations",
+        "LevelC": [
+            "Kaposi sarcoma"
+        ]
+    },
+    {
+        "Group": 59,
+        "LevelA": "Malignant",
+        "LevelB": "Mesenchymal proliferations",
+        "LevelC": [
+            "Atypical fibroxanthoma",
+            "Pleomorphic dermal sarcoma"
+        ]
+    },
+    {
+        "Group": 60,
+        "LevelA": "Malignant",
+        "LevelB": "Mesenchymal proliferations",
+        "LevelC": [
+            "Liposarcoma, NOS",
+            "Liposarcoma, Pleomorphic"
+        ]
+    },
+    {
+        "Group": 61,
+        "LevelA": "Malignant",
+        "LevelB": "Mesenchymal proliferations",
+        "LevelC": [
+            "Leiomyosarcoma",
+            "Malignant peripheral nerve sheath tumor",
+            "Other, specify:_______________"
+        ]
+    },
+    {
+        "Group": 62,
+        "LevelA": "Malignant",
+        "LevelB": "Merkel cell proliferation",
+        "LevelC": [
+            "Merkel cell carcinoma"
+        ]
+    },
+    {
+        "Group": 63,
+        "LevelA": "Malignant",
+        "LevelB": "Lymphocytic proliferations (as solitary lesions)",
+        "LevelC": [
+            "Cutaneous T cell Lymphoma - Mycosis Fungoides",
+            "Cutaneous T-cell and NK-cell lymphomas - Other than mycosis fungoides (Specfiy)",
+            "Cutaneous B cell Lymphoma (Specify)",
+            "Shortlist of hematological malignancies presenting as solitary lesions",
+            "Other, including skin involvement from internal hematological malignancy (Specify)"
+        ]
+    },
+    {
+        "Group": 64,
+        "LevelA": "Malignant",
+        "LevelB": "Skin Metastasis of Internal Solid (non-hematological) Cancer",
+        "LevelC": [
+            "Skin Metastasis of Internal Solid (non-hematological) Cancer, Specify:______"
+        ]
+    },
+    {
+        "Group": 65,
+        "LevelA": "Malignant",
+        "LevelB": "Collision, at least one malignant proliferation",
+        "LevelC": [
+            "Collision, at least one malignant proliferation, Specify"
+        ]
+    },
+    {
+        "Group": 66,
+        "LevelA": "Malignant",
+        "LevelB": "Other malignancy",
+        "LevelC": [
+            "Other malignancy, Specify: ________"
+        ]
+    }
+]
